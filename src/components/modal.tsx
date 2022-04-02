@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import AddIcon from '@mui/icons-material/Add';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -18,18 +18,18 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+interface ModalProps {
+  isOpen: boolean;
+  handleClose: () => void;
+}
 
-export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function BasicModal({isOpen, handleClose}: ModalProps) {
+ 
 
   return (
     <div>
-      
-      <BottomNavigationAction label="Add" onClick={handleOpen} icon={<AddIcon/>} />
       <Modal
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
