@@ -48,7 +48,7 @@ const LoginPage = () => {
 
         <div>
           <div onClick={goToRegisterPage} className={style.create_account}>
-            Создать аккауннт
+            Создать аккаунт 
           </div>
         </div>
       </div>

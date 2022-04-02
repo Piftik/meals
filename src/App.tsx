@@ -4,8 +4,15 @@ import RegisterPage from "./pages/RegisterPage/register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartPage from './pages/startPage/start'
 
+
+const isCookieJWTAvailable = () => !!localStorage.getItem('token');
+
+
 const App = () => {
   console.log("goood");
+
+  const isLogined = isCookieJWTAvailable();
+
   return (
     <BrowserRouter>
       <Routes>
