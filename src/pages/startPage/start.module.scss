@@ -1,9 +1,11 @@
-$BACKGROUND:rgb(61, 84, 90);
-.start__container{
-    background: $BACKGROUND
+$BACKGROUND: rgb(61, 84, 90);
+.start__container {
+  background: $BACKGROUND;
   
 }
-.recipi__container{
-    display: flex;
-    justify-content: space-around;
+.recipi__container {
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: start;
 }

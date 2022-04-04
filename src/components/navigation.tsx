@@ -31,8 +31,8 @@ export default function SimpleBottomNavigation() {
           icon={<AddIcon />}
         />
         <BottomNavigationAction label="Search" icon={<SearchIcon />} />
-        <BottomNavigationAction label="Login" icon={<LoginIcon />} />
-        <BottomNavigationAction label="Register" icon={<HowToRegIcon />} />
+        <BottomNavigationAction label="Login" href='/login' icon={<LoginIcon />} />
+        <BottomNavigationAction label="Register" href='/register' icon={<HowToRegIcon />} />
       </BottomNavigation>
     </Box>
   );

@@ -14,7 +14,7 @@ const RegisterPage = () => {
     console.log(data,'14');
     
     const res: any = await registerUser(data);
-    console.log(res);
+    console.log(res.token);
     localStorage.setItem("token", res.token);
     navigate("/");
   };

@@ -9,8 +9,7 @@ const isCookieJWTAvailable = () => !!localStorage.getItem('token');
 
 
 const App = () => {
-  console.log("goood");
-
+  
   const isLogined = isCookieJWTAvailable();
 
   return (

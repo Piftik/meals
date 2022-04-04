@@ -2,12 +2,34 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import {  AddMealDto } from "../common/models/add-meal.dto";
+import { addMeal } from "../common/api/meal.api";
 
 export default function MultilineTextFields() {
-  const [value, setValue] = React.useState("Controlled");
+  const [meal, setMeal] = React.useState<AddMealDto>({
+    name: "",
+    teg: "",
+    ingrid: "",
+    cooking: "",
+  });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+  const onAddMeal= async ()=>{
+    await addMeal (meal)
+    console.log(meal);
+    
+  }
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+    
+  ) => {
+    console.log(event.target.name);
+    
+    setMeal((prevState) => {
+      
+      return {...prevState,[event.target.name as keyof AddMealDto]: event.target.value};
+    });
+    console.log(event.target);
   };
 
   return (
@@ -23,34 +45,41 @@ export default function MultilineTextFields() {
         <TextField
           id="multiline-name"
           label="Name"
-          multiline
-          maxRows={4}
-          value={value}
+          multiline={false}
+          value={meal.name}
           onChange={handleChange}
           defaultValue="Name"
+          name="name"
         />
         <TextField
           id="outlined-tags"
           label="Tags"
+          value={meal.teg}
+          onChange={handleChange}
           placeholder="Tags"
-          multiline
+          name='teg'
+          multiline={false}
         />
         <TextField
           id="outlined-ingrid"
           label="Ingridienrs"
           multiline
-          rows={4}
+          value={meal.ingrid}
+          onChange={handleChange}
           placeholder="Ingridients"
+          name="ingrid"
         />
         <TextField
           id="outlined-recipi"
           label="Recipe"
+          value={meal.cooking}
+          onChange={handleChange}
           multiline
-          rows={4}
+          name='cooking'
           placeholder="recipe"
         />
       </div>
-      <Button variant="contained">Add</Button>
+      <Button variant="contained" onClick={onAddMeal} >Add</Button>
     </Box>
   );
 }
