@@ -28,9 +28,9 @@ export const addMeal = async (meal: AddMealDto) => {
     }
 }
 
-export const deleteTask = async (taskId: string) => {
+export const deleteMeal = async (mealId: string) => {
     try {
-        const updateTopic = await axios.delete(`todo/${taskId}`, prepareAuthHeader())
+        const updateTopic = await axios.delete(`meal/${mealId}`, prepareAuthHeader())
         return updateTopic.data
     } catch (err: any) {
         console.log(err)
@@ -67,13 +67,13 @@ export const editTask = async (id: number, name: string, ingrid: string, cooking
 //     }
 // }
 
-// export const loadSingleTodo = async (todoId: string) => {
-//     try {
-//         const updateTopic = await axios.delete(`task/${todoId}`, prepareAuthHeader())
-//         return updateTopic.data
-//     } catch (err: any) {
-//         console.log(err)
-//     }
-// }
+export const loadSingleMealContent = async (mealId: string) => {
+    try {
+        const updateTopic = await axios.delete(`meal/${mealId}`, prepareAuthHeader())
+        return updateTopic.data
+    } catch (err: any) {
+        console.log(err)
+    }
+}
 
 
