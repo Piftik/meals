@@ -1,10 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+
 import MultilineTextFields from "./textFildModal";
 
 const style = {

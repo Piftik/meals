@@ -16,6 +16,8 @@ const initialState: reducerState = {
 export default function mealReducer(state: reducerState = initialState, action: any): reducerState {
     switch (action.type) {
         case 'SET_MEAL':
+            console.log(action.payload);
+            
             return {
                 ...state,
                 meal: action.payload,

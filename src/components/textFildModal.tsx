@@ -48,7 +48,6 @@ export default function MultilineTextFields() {
           multiline={false}
           value={meal.name}
           onChange={handleChange}
-          defaultValue="Name"
           name="name"
         />
         <TextField

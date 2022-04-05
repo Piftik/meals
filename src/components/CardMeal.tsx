@@ -44,6 +44,7 @@ const CardMeal = ({
             <input value={editedMealName} onChange={changeTodoName} />
           ) : (
             <Link href={`/meal/${item.id}`}>{item.name}</Link>
+            
           )}
         </div>
       </div>

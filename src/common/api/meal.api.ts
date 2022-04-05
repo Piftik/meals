@@ -16,7 +16,7 @@ export const loadMeal = async (): Promise<MealDto[]> => {
     }
 }
 
-export const addMeal = async (meal: MealDto) => {
+export const addMeal = async (meal: AddMealDto) => {
     console.log(meal);
     
     try {
@@ -49,31 +49,31 @@ export const editTask = async (id: number, name: string, ingrid: string, cooking
     }
 }
 
-export const searchTodo = async (searchText: string, currentPage: number) => {
-    try {
-        const updateTopic = await axios.get(`meal/search?searchText=${searchText}&page=${currentPage}&itemsPerPage=2`, prepareAuthHeader() )
-        return updateTopic.data
-    } catch (err: any) {
-        console.log(err)
-    }
-}
+// export const searchTodo = async (searchText: string, currentPage: number) => {
+//     try {
+//         const updateTopic = await axios.get(`meal/search?searchText=${searchText}&page=${currentPage}&itemsPerPage=2`, prepareAuthHeader() )
+//         return updateTopic.data
+//     } catch (err: any) {
+//         console.log(err)
+//     }
+// }
 
-export const getAmountPagesByCriteria = async (searchText: string, currentPage: number) => {
-    try {
-        const updateTopic = await axios.get(`meal/getAmountPagesByCriteria?searchText=${searchText}&page=${currentPage}&itemsPerPage=2`, prepareAuthHeader() )
-        return updateTopic.data
-    } catch (err: any) {
-        console.log(err)
-    }
-}
+// export const getAmountPagesByCriteria = async (searchText: string, currentPage: number) => {
+//     try {
+//         const updateTopic = await axios.get(`meal/getAmountPagesByCriteria?searchText=${searchText}&page=${currentPage}&itemsPerPage=2`, prepareAuthHeader() )
+//         return updateTopic.data
+//     } catch (err: any) {
+//         console.log(err)
+//     }
+// }
 
-export const loadSingleTodo = async (todoId: string) => {
-    try {
-        const updateTopic = await axios.delete(`task/${todoId}`, prepareAuthHeader())
-        return updateTopic.data
-    } catch (err: any) {
-        console.log(err)
-    }
-}
+// export const loadSingleTodo = async (todoId: string) => {
+//     try {
+//         const updateTopic = await axios.delete(`task/${todoId}`, prepareAuthHeader())
+//         return updateTopic.data
+//     } catch (err: any) {
+//         console.log(err)
+//     }
+// }
 
 
