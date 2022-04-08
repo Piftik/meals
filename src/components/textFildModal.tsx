@@ -2,10 +2,15 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import {  AddMealDto } from "../common/models/add-meal.dto";
+import { AddMealDto } from "../common/models/add-meal.dto";
 import { addMeal } from "../common/api/meal.api";
+import { getMealsThunk } from "../store/meal.thunk";
+import { useAppDispatch } from "../store/store";
+interface Props {
+  onClose?: () => void;
+}
 
-export default function MultilineTextFields() {
+export const MultilineTextFields = ({ onClose }: Props) => {
   const [meal, setMeal] = React.useState<AddMealDto>({
     name: "",
     teg: "",
@@ -13,21 +18,24 @@ export default function MultilineTextFields() {
     cooking: "",
   });
 
-  const onAddMeal= async ()=>{
-    await addMeal (meal)
-    console.log(meal);
-    
-  }
+  const dispatch = useAppDispatch();
+  const onAddMeal = () => {
+    addMeal(meal).then(() => {
+      dispatch(getMealsThunk());
+      if (onClose) onClose();
+    });
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-    
-  ) => {
+    console.log(meal);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.name);
-    
+
     setMeal((prevState) => {
-      
-      return {...prevState,[event.target.name as keyof AddMealDto]: event.target.value};
+      return {
+        ...prevState,
+        [event.target.name as keyof AddMealDto]: event.target.value,
+      };
     });
     console.log(event.target);
   };
@@ -56,7 +64,7 @@ export default function MultilineTextFields() {
           value={meal.teg}
           onChange={handleChange}
           placeholder="Tags"
-          name='teg'
+          name="teg"
           multiline={false}
         />
         <TextField
@@ -74,11 +82,13 @@ export default function MultilineTextFields() {
           value={meal.cooking}
           onChange={handleChange}
           multiline
-          name='cooking'
+          name="cooking"
           placeholder="recipe"
         />
       </div>
-      <Button variant="contained" onClick={onAddMeal} >Add</Button>
+      <Button variant="contained" onClick={onAddMeal}>
+        Add
+      </Button>
     </Box>
   );
-}
+};

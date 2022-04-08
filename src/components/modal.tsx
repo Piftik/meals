@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-import MultilineTextFields from "./textFildModal";
+import { MultilineTextFields } from "./textFildModal";
 
 const style = {
   position: "absolute" as "absolute",
@@ -21,9 +21,7 @@ interface ModalProps {
   handleClose: () => void;
 }
 
-export default function BasicModal({isOpen, handleClose}: ModalProps) {
- 
-
+export default function BasicModal({ isOpen, handleClose }: ModalProps) {
   return (
     <div>
       <Modal
@@ -36,7 +34,7 @@ export default function BasicModal({isOpen, handleClose}: ModalProps) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Add meal recipi
           </Typography>
-          <MultilineTextFields />
+          <MultilineTextFields onClose={handleClose} />
         </Box>
       </Modal>
     </div>
