@@ -2,5 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    flex-direction: column;
+    background: #9162e4
+}
+.meal__name{
+font-size: 36px;
 }

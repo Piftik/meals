@@ -6,6 +6,8 @@ import { AddMealDto } from "../common/models/add-meal.dto";
 import { addMeal } from "../common/api/meal.api";
 import { getMealsThunk } from "../store/meal.thunk";
 import { useAppDispatch } from "../store/store";
+import UploadAndDisplayImage from "./Image-add";
+import { Buffer } from "buffer";
 interface Props {
   onClose?: () => void;
 }
@@ -28,8 +30,27 @@ export const MultilineTextFields = ({ onClose }: Props) => {
     console.log(meal);
   };
 
+  const getImageMeal = (file: File) => {
+    console.log(file);
+
+    const buf = Buffer.from([file].toString());
+    const uint32array = new Uint32Array(buf);
+    console.log(buf, "buf");
+    console.log(uint32array, "uint32array");
+
+    const blob = new Blob([file]);
+    console.log(blob, "blob");
+    setMeal((prevState) => {
+      return {
+        ...prevState,
+        img: file,
+      };
+    });
+  };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.name);
+    console.log(event.target.name, "event name");
+    console.log(event.target, "event target");
 
     setMeal((prevState) => {
       return {
@@ -86,6 +107,7 @@ export const MultilineTextFields = ({ onClose }: Props) => {
           placeholder="recipe"
         />
       </div>
+      <UploadAndDisplayImage onFileAdded={getImageMeal} />
       <Button variant="contained" onClick={onAddMeal}>
         Add
       </Button>

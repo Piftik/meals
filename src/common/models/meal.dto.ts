@@ -1,8 +1,8 @@
 export interface MealDto {
-    id: number;
-    name: string;
-    teg?: string;
-    ingrid: string;
-    cooking: string;
-  }
-  
+  id: number;
+  name: string;
+  teg?: string;
+  ingrid: string;
+  cooking: string;
+  img?: string;
+}

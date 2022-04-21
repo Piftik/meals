@@ -1,11 +1,21 @@
-$BACKGROUND: rgb(61, 84, 90);
+$BACKGROUND: #5e35b1;
 .start__container {
   background: $BACKGROUND;
-  
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 }
 .recipi__container {
   display: flex;
-  
+
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
+}
+.input {
+  background: #000;
+  width: 250px;
+  height: 30px;
+  color:white;
+
 }

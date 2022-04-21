@@ -87,6 +87,8 @@ export const editTask = async (
 export const loadSingleMealContent = async (mealId: string) => {
   try {
     const updateTopic = await axios.get(`meal/${mealId}`, prepareAuthHeader());
+    console.log(updateTopic.data, "data", mealId, "id");
+
     return updateTopic.data;
   } catch (err: any) {
     console.log(err);

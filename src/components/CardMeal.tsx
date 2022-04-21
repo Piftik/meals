@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./CardMeal.module.scss";
+import style from "./scss/CardMeal.module.scss";
 import { MealDto } from "../common/models/meal.dto";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -45,10 +45,7 @@ const CardMeal = ({
   return (
     <div className={style.content}>
       <div className={style.container}>
-        <FavoriteBorderIcon />
-        <DeleteIcon onClick={() => onDeleteMeal(item.id)} />
-        <EditIcon onClick={enableEditMode} />
-        <div className="card">
+        <div className={style.card}>
           {isEditMode ? (
             <input value={editedMealName} onChange={changeTodoName} />
           ) : (
@@ -56,6 +53,11 @@ const CardMeal = ({
               <h3>{item.name}</h3>
             </Link>
           )}
+        </div>
+        <div className={style.icon}>
+          <FavoriteBorderIcon />
+          <DeleteIcon onClick={() => onDeleteMeal(item.id)} />
+          <EditIcon onClick={enableEditMode} />
         </div>
       </div>
     </div>
