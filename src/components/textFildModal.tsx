@@ -33,7 +33,7 @@ export const MultilineTextFields = ({ onClose }: Props) => {
   const getImageMeal = (file: File) => {
     console.log(file);
 
-    const buf = Buffer.from([file].toString());
+    const buf = Buffer.from(file.toString());
     const uint32array = new Uint32Array(buf);
     console.log(buf, "buf");
     console.log(uint32array, "uint32array");

@@ -1,5 +1,5 @@
 export interface EditMealDto {
-  id?: number;
+  id?: string;
   name: string;
   teg?: string;
   ingrid: string;

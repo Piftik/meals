@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import BasicModal from "./Modal";
+import BasicModal from "./modal";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";

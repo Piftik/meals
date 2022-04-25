@@ -42,12 +42,17 @@ export const deleteMeal = async (mealId: string) => {
   }
 };
 
-export const editTask = async (
-  id: number,
-  name: string,
-  ingrid: string,
-  cooking: string
-) => {
+export const editTask = async ({
+  id,
+  name = "",
+  ingrid = "",
+  cooking = "",
+}: {
+  id: string;
+  name?: string;
+  ingrid?: string;
+  cooking?: string;
+}) => {
   try {
     const editMealDto: EditMealDto = {
       id,
@@ -55,8 +60,10 @@ export const editTask = async (
       ingrid,
       cooking,
     };
+    console.log(id, "id");
     const updateTopic = await axios.patch(
-      `meal/edit`,
+      `meal/${id}`,
+
       editMealDto,
       prepareAuthHeader()
     );

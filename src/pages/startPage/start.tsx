@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardMeal from "../../components/CardMeal";
 import style from "../startPage/start.module.scss";
-import SimpleBottomNavigation from "../../components/Navigation";
+import SimpleBottomNavigation from "../../components/navigation";
 import { MealDto } from "../../common/models/meal.dto";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";

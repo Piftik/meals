@@ -17,7 +17,7 @@ export const getMealsThunk = createAsyncThunk("meal/getAll", async () => {
 export const getOneMealThunk = createAsyncThunk(
   "meal/id",
   async (mealId: string) => {
-    console.log(mealId);
+    console.log(mealId, "mealId");
 
     const response = await loadSingleMealContent(mealId);
     console.log(response, "response api single");
@@ -25,6 +25,7 @@ export const getOneMealThunk = createAsyncThunk(
     return response;
   }
 );
+
 export interface MealState {
   meals: MealDto[];
   meal: MealDto | null;

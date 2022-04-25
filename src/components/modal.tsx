@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-import { MultilineTextFields } from "./TextFildModal";
+import { MultilineTextFields } from "./textFildModal";
 
 const style = {
   position: "absolute" as "absolute",
