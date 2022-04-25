@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 interface Props {
-  onFileAdded: (file: File) => void;
+  onFileAdded: (file: File, urlBase: string) => void;
 }
 
 const UploadAndDisplayImage = ({ onFileAdded }: Props) => {
@@ -13,7 +13,7 @@ const UploadAndDisplayImage = ({ onFileAdded }: Props) => {
       {selectedImage && (
         <div>
           <img
-            alt="not fount"
+            alt="not found"
             width={"250px"}
             src={URL.createObjectURL(selectedImage)}
           />
@@ -29,11 +29,14 @@ const UploadAndDisplayImage = ({ onFileAdded }: Props) => {
         name="myImage"
         onChange={(event) => {
           const file = event?.target?.files && event.target.files[0];
-
+          const urlBase = event.target.baseURI;
           if (!file) return;
           console.log(file, "file");
+          console.log(event, "URL");
+          console.log(urlBase, "base URL");
+
           setSelectedImage(file);
-          onFileAdded(file);
+          onFileAdded(file, urlBase);
         }}
       />
       <br />

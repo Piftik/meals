@@ -7,7 +7,7 @@ import { addMeal } from "../common/api/meal.api";
 import { getMealsThunk } from "../store/meal.thunk";
 import { useAppDispatch } from "../store/store";
 import UploadAndDisplayImage from "./Image-add";
-import { Buffer } from "buffer";
+
 interface Props {
   onClose?: () => void;
 }
@@ -22,7 +22,9 @@ export const MultilineTextFields = ({ onClose }: Props) => {
 
   const dispatch = useAppDispatch();
   const onAddMeal = () => {
+    console.log(meal);
     addMeal(meal).then(() => {
+      console.log(meal);
       dispatch(getMealsThunk());
       if (onClose) onClose();
     });
@@ -30,20 +32,22 @@ export const MultilineTextFields = ({ onClose }: Props) => {
     console.log(meal);
   };
 
-  const getImageMeal = (file: File) => {
+  const getImageMeal = (file: File, urlBase: string) => {
     console.log(file);
+    console.log(urlBase);
 
-    const buf = Buffer.from(file.toString());
-    const uint32array = new Uint32Array(buf);
-    console.log(buf, "buf");
-    console.log(uint32array, "uint32array");
+    // const buf = Buffer.from(file.toString());
+    // const uint32array = new Uint32Array(buf);
+    // console.log(buf, "buf");
+    // console.log(uint32array, "uint32array");
 
-    const blob = new Blob([file]);
-    console.log(blob, "blob");
+    // const blob = new Blob([file]);
+    // console.log(blob, "blob");
+
     setMeal((prevState) => {
       return {
         ...prevState,
-        img: file,
+        img: urlBase,
       };
     });
   };
@@ -107,7 +111,9 @@ export const MultilineTextFields = ({ onClose }: Props) => {
           placeholder="recipe"
         />
       </div>
+
       <UploadAndDisplayImage onFileAdded={getImageMeal} />
+
       <Button variant="contained" onClick={onAddMeal}>
         Add
       </Button>

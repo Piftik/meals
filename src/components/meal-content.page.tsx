@@ -130,7 +130,10 @@ const MealContent = ({ response }: any) => {
               <span>Ингридиенты: {meal.ingrid}</span>
             )}
           </div>
-          <div className="meal__picture">{meal.img}</div>
+          <div className="meal__picture">
+            <img alt="not found" width={"250px"} src={meal.img} />
+            {meal.img}
+          </div>
         </div>
       )}
       <EditIcon onClick={enableEditMode} />

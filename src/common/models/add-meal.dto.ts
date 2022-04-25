@@ -4,5 +4,5 @@ export interface AddMealDto {
   teg?: string;
   ingrid: string;
   cooking: string;
-  img?: File;
+  img?: string;
 }

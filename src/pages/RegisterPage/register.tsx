@@ -11,8 +11,8 @@ const RegisterPage = () => {
   let navigate = useNavigate();
 
   const onSubmit = async (data: any) => {
-    console.log(data,'14');
-    
+    console.log(data, "14");
+
     const res: any = await registerUser(data);
     console.log(res.token);
     localStorage.setItem("token", res.token);
@@ -24,10 +24,11 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className={style.register_page}>
-      <div className={style.register__page_container}>
-        <div>Register</div>
+    <div className={style.register}>
+      <div className={style.register_header}>
+        <h1>Register</h1>
         <form className={style.login_form} onSubmit={handleSubmit(onSubmit)}>
+          <h3>User name:</h3>
           <TextField
             id="outlined-basic"
             className={style.input}
@@ -35,7 +36,8 @@ const RegisterPage = () => {
             {...register("login", { required: true })}
             variant="outlined"
           />
-
+          <br></br>
+          <h3>Password:</h3>
           <TextField
             id="outlined-basic"
             className={style.input}
@@ -43,11 +45,13 @@ const RegisterPage = () => {
             {...register("password", { required: true })}
             variant="outlined"
           />
-          <input type="submit" />
+          <br></br>
+          <input type="submit" className={style.login_button} />
+          <br></br>
         </form>
 
         <div>
-          <div onClick={goToLoginPage} className="move-login-page">
+          <div onClick={goToLoginPage} className={style.sign_up}>
             Already have account?
           </div>
         </div>
