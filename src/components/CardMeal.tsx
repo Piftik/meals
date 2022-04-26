@@ -27,7 +27,12 @@ const CardMeal = ({
 
   return (
     <div className={style.content}>
-      <div className={style.container}>
+      <div
+        className={style.container}
+        style={{
+          backgroundImage: `url(../../../../img/${item.img})`,
+        }}
+      >
         <div className={style.card}>
           <Link href={`/meal/${item.id}`}>
             <h3>{item.name}</h3>

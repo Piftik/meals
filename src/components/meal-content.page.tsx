@@ -131,8 +131,11 @@ const MealContent = ({ response }: any) => {
             )}
           </div>
           <div className="meal__picture">
-            <img alt="not found" width={"250px"} src={meal.img} />
-            {meal.img}
+            <img
+              alt="not found"
+              width={"250px"}
+              src={`../../../img/${meal.img}`}
+            />
           </div>
         </div>
       )}

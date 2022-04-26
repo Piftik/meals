@@ -34,6 +34,7 @@ const StartPage = () => {
       },
     });
   };
+
   console.log(meal);
   return (
     <div className={style.start__container}>

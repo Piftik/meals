@@ -32,10 +32,9 @@ export const MultilineTextFields = ({ onClose }: Props) => {
     console.log(meal);
   };
 
-  const getImageMeal = (file: File, urlBase: string) => {
+  const getImageMeal = (file: File) => {
     console.log(file);
-    console.log(urlBase);
-
+    console.log(file.name, "file name");
     // const buf = Buffer.from(file.toString());
     // const uint32array = new Uint32Array(buf);
     // console.log(buf, "buf");
@@ -47,7 +46,7 @@ export const MultilineTextFields = ({ onClose }: Props) => {
     setMeal((prevState) => {
       return {
         ...prevState,
-        img: urlBase,
+        img: file.name,
       };
     });
   };
